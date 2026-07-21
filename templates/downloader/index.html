@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#070b1a" />
+
+  <!-- Favicon (site logo next to the tab title) -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+
+  <title>AŘA_downloader — تحميل فيديوهات فيسبوك بالصوت وبجودة عالية مجاناً</title>
+
+  <meta name="description" content="AŘA_downloader أداة احترافية ومجانية لتحميل فيديوهات فيسبوك بالصوت وبجودة عالية HD و SD برابط مباشر خارجي. الصق الرابط، شاهد المعاينة، وحمّل الفيديو فوراً." />
+  <meta name="keywords" content="تحميل فيديوهات فيسبوك, تنزيل فيديو facebook, ARA_downloader, تحميل بالصوت, تحميل HD, تحميل مباشر, أداة تحميل فيسبوك" />
+  <meta name="author" content="AŘA_downloader" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ara-downloader.example.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AŘA_downloader" />
+  <meta property="og:locale" content="ar_AR" />
+  <meta property="og:title" content="AŘA_downloader — تحميل فيديوهات فيسبوك بالصوت مجاناً" />
+  <meta property="og:description" content="أداة احترافية لتحميل فيديوهات فيسبوك بالصوت وبجودة عالية HD و SD برابط مباشر خارجي. سريع، آمن، ومجاني." />
+  <meta property="og:image" content="https://images.pexels.com/photos/267507/pexels-photo-267507.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+  <meta property="og:url" content="https://ara-downloader.example.com/" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AŘA_downloader — تحميل فيديوهات فيسبوك بالصوت" />
+  <meta name="twitter:description" content="حمّل فيديوهات فيسبوك بالصوت وبجودة عالية برابط مباشر خارجي. مجاني وسريع وآمن." />
+  <meta name="twitter:image" content="https://images.pexels.com/photos/267507/pexels-photo-267507.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AŘA_downloader",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "inLanguage": "ar",
+    "description": "أداة احترافية لتحميل فيديوهات فيسبوك بالصوت وبجودة عالية HD و SD برابط مباشر خارجي.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+  <div class="bg-canvas"></div>
+  <div class="bg-mesh"></div>
+  <div class="particles" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav-links">
+      <a href="#home">الرئيسية</a>
+      <a href="#features">المميزات</a>
+      <a href="#how">طريقة الاستخدام</a>
+    </nav>
+    <a href="#home" class="logo" aria-label="AŘA_downloader">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </span>
+      <span class="logo-text-wrap">
+        <span class="logo-text">AŘA_downloader</span>
+        <span class="logo-tagline">for facebook</span>
+      </span>
+    </a>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-badge"><span class="dot"></span> تحميل مباشر برابط خارجي — بالصوت ومجاني</div>
+    <h1>حمّل فيديوهات <span class="grad">فيسبوك</span><br/>بجودة عالية وبصوت كامل</h1>
+    <p class="lead">الصق رابط الفيديو من فيسبوك، شاهد الفيديو تحت البحث مباشرة، ثم حمّله برابط خارجي مباشر على جهازك — بصوت واضح وجودة عالية.</p>
+
+    <form class="downloader" id="dl-form" onsubmit="return false;">
+      <div class="input-row">
+        <input type="text" class="url-input" id="url" placeholder="https://www.facebook.com/.../videos/..." dir="ltr" autocomplete="off" />
+        <button type="button" class="btn btn-primary" id="fetch-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 21l-4.35-4.35M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/></svg>
+          جلب الفيديو
+        </button>
+      </div>
+
+      <div class="status" id="status"></div>
+
+      <div class="result" id="result">
+        <div class="result-card">
+          <div class="result-meta">
+            <h3 id="v-title">عنوان الفيديو</h3>
+            <div class="sub" id="v-sub"></div>
+          </div>
+        </div>
+
+        <div class="video-wrap" id="video-wrap" style="display:none;">
+          <video id="video-player" controls playsinline preload="metadata"></video>
+        </div>
+
+        <div class="quality-row" id="quality-wrap"></div>
+        <div class="download-actions">
+          <a class="btn btn-primary" id="download-btn" href="#" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+            تحميل برابط مباشر
+          </a>
+          <button type="button" class="btn btn-ghost" id="reset-btn">إلغاء</button>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <section class="section" id="features">
+    <h2 class="section-title reveal">لماذا <span class="grad">AŘA_downloader</span>؟</h2>
+    <p class="section-sub reveal" data-delay="1">أداة احترافية لتحميل فيديوهات فيسبوك بأعلى جودة وبصوت واضح، بواجهة عصرية وسريعة.</p>
+    <div class="features-grid">
+      <div class="feature-card reveal" data-delay="1">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg></div>
+        <h3>تحميل بالصوت</h3>
+        <p>كل فيديو يتم تحميله بصوت واضح وجودة عالية — لا فيديوهات صامتة أبداً.</p>
+      </div>
+      <div class="feature-card reveal" data-delay="2">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h7"/></svg></div>
+        <h3>اختيار الجودة</h3>
+        <p>اختر بين الجودة العادية SD أو الجودة العالية HD حسب احتياجك.</p>
+      </div>
+      <div class="feature-card reveal" data-delay="3">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></div>
+        <h3>رابط مباشر خارجي</h3>
+        <p>التحميل يتم من رابط فيسبوك المباشر بدون المرور بسيرفر — أسرع وأخف.</p>
+      </div>
+      <div class="feature-card reveal" data-delay="4">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 1l3 6 6 1-4.5 4.5L18 19l-6-3-6 3 1.5-6.5L3 8l6-1z"/></svg></div>
+        <h3>معاينة فورية</h3>
+        <p>شاهد الفيديو تحت البحث مباشرة قبل التحميل من نفس الرابط الخارجي.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title reveal">تجربة بصرية <span class="grad">احترافية</span></h2>
+    <p class="section-sub reveal" data-delay="1">واجهة عصرية بألوان متحركة وحركات سلسة عند التمرير.</p>
+    <div class="showcase">
+      <div class="showcase-item reveal" data-delay="1">
+        <img src="https://images.pexels.com/photos/3062541/pexels-photo-3062541.jpeg?auto=compress&cs=tinysrgb&w=800" alt="تصفح" loading="lazy" />
+        <div class="overlay"><span>تصميم عصري</span></div>
+      </div>
+      <div class="showcase-item reveal" data-delay="2">
+        <img src="https://images.pexels.com/photos/267507/pexels-photo-267507.jpeg?auto=compress&cs=tinysrgb&w=800" alt="فيديو" loading="lazy" />
+        <div class="overlay"><span>فيديو بجودة عالية</span></div>
+      </div>
+      <div class="showcase-item reveal" data-delay="3">
+        <img src="https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg?auto=compress&cs=tinysrgb&w=800" alt="موسيقى" loading="lazy" />
+        <div class="overlay"><span>صوت نقي</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <h2 class="section-title reveal">كيف <span class="grad">يعمل</span>؟</h2>
+    <p class="section-sub reveal" data-delay="1">ثلاث خطوات بسيطة لتحميل أي فيديو من فيسبوك.</p>
+    <div class="steps">
+      <div class="step reveal" data-delay="1">
+        <div class="num">1</div>
+        <h3>انسخ الرابط</h3>
+        <p>افتح الفيديو على فيسبوك وانسخ رابطه من المتصفح أو زر المشاركة.</p>
+      </div>
+      <div class="step reveal" data-delay="2">
+        <div class="num">2</div>
+        <h3>الصق وشاهد</h3>
+        <p>الصق الرابط في الأعلى، اضغط جلب الفيديو، وشاهد المعاينة تحت البحث.</p>
+      </div>
+      <div class="step reveal" data-delay="3">
+        <div class="num">3</div>
+        <h3>حمّل برابط مباشر</h3>
+        <p>اختر الجودة واضغط تحميل — الفيديو ينزل برابط خارجي مباشر بصوت كامل.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="logo">
+      <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+      <span class="logo-text-wrap">
+        <span class="logo-text">AŘA_downloader</span>
+        <span class="logo-tagline">for facebook</span>
+      </span>
+    </div>
+    <small>أداة احترافية لتحميل فيديوهات فيسبوك بالصوت من ARA</small>
+  </footer>
+
+  <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>
