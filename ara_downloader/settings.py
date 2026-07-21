@@ -7,7 +7,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "dev-secret-key")
 
 # محليًا خليه True علشان تشوف الأخطاء
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "True") == "True"
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "arafacebook.up.railway.app",
+    "arafacebook-production.up.railway.app"
+]
+
+
+
+
 
 # في الإنتاج لازم تحدد الدومين بتاعك
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "arafacebook.up.railway.app"]
