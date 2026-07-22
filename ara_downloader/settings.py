@@ -18,6 +18,7 @@ ALLOWED_HOSTS = [
 
 
 
+
 # في الإنتاج لازم تحدد الدومين بتاعك
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "arafacebook.up.railway.app"]
 
