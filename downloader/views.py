@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
+from django.http import HttpResponse
 
 from . import ytdlp_service
 
@@ -51,3 +52,9 @@ def index(request):
     response["Referrer-Policy"] = "strict-origin-when-cross-origin"
     response["Permissions-Policy"] = "geolocation=(), microphone=(), camera=()"
     return response
+
+def google_verification(request):
+    return HttpResponse(
+        "google-site-verification: google55e2cfdb79c0b019.html",
+        content_type="text/plain"
+    )
