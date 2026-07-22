@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "downloader",
+        "django.contrib.sitemaps",
+
 ]
 
 ROOT_URLCONF = "ara_downloader.urls"

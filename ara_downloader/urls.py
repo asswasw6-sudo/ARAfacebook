@@ -5,6 +5,26 @@ from django.views.generic import TemplateView
 from downloader.views import google_verification
 from downloader import views
 
+
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import StaticViewSitemap
+from downloader.views import robots_txt
+
+sitemaps = {
+    "static": StaticViewSitemap,
+}
+
+
+
+
+
+
+
+
+
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
@@ -20,4 +40,17 @@ urlpatterns = [
         google_verification,
         name="google_verification",
     ),
+
+
+
+
+    path("robots.txt", robots_txt),
+path(
+    "sitemap.xml",
+    sitemap,
+    {"sitemaps": sitemaps},
+    name="django.contrib.sitemaps.views.sitemap",
+),
+
+
 ]
