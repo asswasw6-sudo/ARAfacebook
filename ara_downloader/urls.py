@@ -4,6 +4,7 @@ from django.urls import path
 from django.views.generic import TemplateView
 from downloader.views import google_verification
 from downloader import views
+from django.views.generic import RedirectView
 
 
 from django.contrib.sitemaps.views import sitemap
@@ -43,6 +44,15 @@ path(
     sitemap,
     {"sitemaps": sitemaps},
     name="django.contrib.sitemaps.views.sitemap",
+),
+
+
+
+
+    path(
+    "sw.js",
+    RedirectView.as_view(url="/static/sw.js", permanent=False),
+    name="service_worker",
 ),
 
 
